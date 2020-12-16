@@ -16,11 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from backend.core import views
+#from backend.core import views
+
+from backend.partners import views
+
 
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('signup/', views.signup, name='signup'),
+
+    #path('signup/', views.signup, name='signup'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
+    path('', views.index, name = 'index'),
+    path('upload/', views.upload, name = 'upload-partners'),
+    path('update/<int:partners_id>', views.update_partners),
+    path('delete/<int:partners_id>', views.delete_partners)
 ]

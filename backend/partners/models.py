@@ -11,6 +11,9 @@ class Partner(models.Model):
 
     brandName = models.CharField(max_length=50)
     owner = models.CharField(max_length=50)
-    gender = models.IntegerField(max_length=1, choices=Gender.choices)
-    locationID = models.CharField()
+    gender = models.CharField(max_length=1, choices=Gender.choices)
+    locationID = models.CharField(max_length=50)
     availability = models.BooleanField(default= False)
+
+    class Meta:
+        db_table = "partners"
