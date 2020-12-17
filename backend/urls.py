@@ -18,16 +18,22 @@ from django.urls import path, include
 
 #from backend.core import views
 
-from backend.partners import views
+#from backend.partners import views
 
+from backend.authentication import views
 
 urlpatterns = [
 
     #path('signup/', views.signup, name='signup'),
-    path('accounts/', include('django.contrib.auth.urls')),
-    path('admin/', admin.site.urls),
-    path('', views.index, name = 'index'),
-    path('upload/', views.upload, name = 'upload-partners'),
-    path('update/<int:partners_id>', views.update_partners),
-    path('delete/<int:partners_id>', views.delete_partners)
+    # path('accounts/', include('django.contrib.auth.urls')),
+    # path('upload/', views.upload, name = 'upload-partners'),
+    # path('update/<int:partners_id>', views.update_partners),
+    # path('delete/<int:partners_id>', views.delete_partners)
+
+
+    #path('admin/', admin.site.urls),
+    path('authentication/Signup/', views.SignupView.as_view(), name='Signup'),
+    path('', views.Dashboard, name='dashboard'),
+    path('authentication/logout/', views.Logout, name='logout'),
+    path('authentication/login/', views.LoginView.as_view(), name='login'),
 ]
